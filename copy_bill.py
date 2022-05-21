@@ -34,6 +34,8 @@
 Для реализации основного меню можно использовать пример ниже или написать свой
 """
 
+import json
+import os
 
 def run_bill():
     """
@@ -42,6 +44,16 @@ def run_bill():
     """
     bill_sum = 0
     history = []
+
+    FILE_NAME = "my_count.json"
+    if os.path.exists(FILE_NAME):
+        with open(FILE_NAME, 'r') as f:
+            history = json.load(f)
+
+    FILE_NAME_sum = "my_money.json"
+    if os.path.exists(FILE_NAME_sum):
+        with open(FILE_NAME_sum, 'r') as f:
+            bill_sum = json.load(f)
 
     while True:
         print('1. пополнение счета')
@@ -65,6 +77,13 @@ def run_bill():
         elif choice == '3':
             print(history)
         elif choice == '4':
+            with open(FILE_NAME, 'w') as f:
+                json.dump(history, f)
+            with open(FILE_NAME_sum, 'w') as f:
+                json.dump(bill_sum, f)
             break
         else:
             print('Неверный пункт меню')
+
+# if __name__ == '__main__':
+#     run_bill()

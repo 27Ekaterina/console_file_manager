@@ -1,3 +1,5 @@
+import os
+
 """
 Модуль для запуска консольного файлового менеджера
 """
@@ -12,6 +14,7 @@ from victory import run_victory
 # Названия пунктов меню
 COPY_FILE_FOLDER = 'Копировать (файл/папку)'
 SHOW_FILES = 'Посмотреть только файлы'
+SAVE_FILES = 'Cохранить содержимое рабочей директории в файл'
 AUTHOR = 'Создатель программы'
 VICTORY = 'Играть в викторину'
 BILL = 'Мой банковский счет'
@@ -21,6 +24,7 @@ EXIT = 'Выход'
 menu_items = (
     COPY_FILE_FOLDER,
     SHOW_FILES,
+    SAVE_FILES,
     AUTHOR,
     VICTORY,
     BILL,
@@ -35,7 +39,6 @@ def separator(count=30):
     :return: красивый разделитель
     """
     return '*' * count
-
 
 def copy_file_or_folder():
     """
@@ -71,11 +74,17 @@ def print_files():
     for item in files:
         print(item)
 
+def save_files():
+    file = filemanager.save_filenames()
+    with open('listdir.txt', 'w', encoding='utf-8') as f:
+        file = map(lambda x: x + '\n', file)
+        f.writelines(file)
 
 # Словарь действия связывает название пункта меню с той функцией которую нужно выполнить
 actions = {
     COPY_FILE_FOLDER: copy_file_or_folder,
     SHOW_FILES: print_files,
+    SAVE_FILES: save_files,
     AUTHOR: print_author,
     VICTORY: run_victory,
     BILL: run_bill,
