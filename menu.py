@@ -92,7 +92,7 @@ while True:
         print(os.getlogin())
 
     elif choice == '9':
-        import victory
+        import victory_my
     elif choice == '10':
         import use_functions
     elif choice == '11':
