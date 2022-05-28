@@ -17,6 +17,20 @@ def filenames():
             result.append(item)
     return result
 
+def save_filenames():
+    result = {
+        "files": [],
+        "dirs": []
+    }
+    for item in os.listdir():
+        if os.path.isfile(item):
+            file = result["files"]
+            file.append(item)
+        else:
+            dir = result["dirs"]
+            dir.append(item)
+    list_result = [f'{key}, {value}' for key, value in result.items()]
+    return list_result
 
 def author_info():
     return 'Leonid Orlov'
@@ -24,3 +38,6 @@ def author_info():
 
 def quit():
     sys.exit(0)
+
+if __name__ == '__main__':
+    print(save_filenames())

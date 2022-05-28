@@ -30,3 +30,10 @@ def test_author_info():
 import filecmp
 def test_copy_file_or_folder():
     assert filecmp.cmp("copy_bill.py", "bill.py") == True
+
+def test_save_filenames():
+    assert 'my_count.json' in os.listdir()
+
+    with open('listdir.txt', 'r') as f:
+        result = f.read()
+    assert 'my_count.json' in result
