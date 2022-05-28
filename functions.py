@@ -7,9 +7,12 @@ filter_numbers = filter(lambda x: x > 10, num)
 
 filter_number = filter(lambda x: x < 10, num)
 
+fil_number_operate = [number for number in num if number > 10]
+
 if __name__ == '__main__':
     print(list(filter_numbers))
     print(list(filter_number))
+    print(list(fil_number))
 
 """
 Функция map
@@ -17,7 +20,10 @@ if __name__ == '__main__':
 mile_distances = [1.0, 6.5, 17.4, 2.4, 9]
 kilometer_distances = list(map(lambda x: x * 1.6, mile_distances))
 
+kilometer = [mile * 1.6 for mile in mile_distances]
+
 print(kilometer_distances)
+print(kilometer)
 
 """
 функция sorted

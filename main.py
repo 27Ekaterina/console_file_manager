@@ -1,5 +1,3 @@
-import os
-
 """
 Модуль для запуска консольного файлового менеджера
 """
@@ -10,6 +8,7 @@ import filemanager
 from bill import run_bill
 # Викторина
 from victory import run_victory
+from separator import add_separators
 
 # Названия пунктов меню
 COPY_FILE_FOLDER = 'Копировать (файл/папку)'
@@ -31,14 +30,6 @@ menu_items = (
     EXIT
 )
 
-
-def separator(count=30):
-    """
-    Функция разделитель
-    :param count: количество звездочек
-    :return: красивый разделитель
-    """
-    return '*' * count
 
 def copy_file_or_folder():
     """
@@ -91,17 +82,19 @@ actions = {
     EXIT: filemanager.quit
 }
 
-
+@add_separators
 def print_menu():
     """
     Функция вывода меню
     :return: None
     """
-    print(separator())
+    # print(separator())
     # Выводим названи пункта меню и цифру начиная с 1
     for number, item in enumerate(menu_items, 1):
         print(f'{number}) {item}')
-    print(separator())
+    # print(separator())
+
+
 
 
 def is_correct_choice(choice):

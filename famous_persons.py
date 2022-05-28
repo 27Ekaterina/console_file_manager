@@ -26,12 +26,14 @@ def get_person_and_question():
     answer = input(f'Когда родился {name} ')
 
     # Если введенный год совпадает с правильным
-    if answer == date:
-        print('Верно')
-    else:
-        print('Неверно')
+    print("Верно" if answer == date else 'Неверно')
+    # if answer == date:
+    #     print('Верно')
+    # else:
+    #     print('Неверно')
 
 
 # print('__name__', __name__)
 if __name__ == '__main__':
     print('Проверка фукцнии', get_random_person())
+    get_person_and_question()

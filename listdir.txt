@@ -1,0 +1,2 @@
+files, ['bill.py', 'copy_bill.py', 'famous_persons.py', 'filemanager.py', 'functions.py', 'LICENSE', 'listdir.txt', 'main.py', 'menu.py', 'my_count.json', 'my_money.json', 'test_filemanager.py', 'test_python.py', 'use_functions.py', 'victory.py', 'victory_my.py']
+dirs, ['.git', '.idea', '.pytest_cache', 'test_dir', 'venv', '__pycache__']

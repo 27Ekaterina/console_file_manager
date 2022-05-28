@@ -18,6 +18,9 @@ def test_filter_number():
         x.append(i)
     assert len(x) == 4
 
+def test_fil_number_operate():
+    assert num[0] not in fil_number_operate
+
 '''
 тестирование map
 '''
@@ -25,6 +28,9 @@ def test_kilometer_distances():
     mile_distances = [1.0, 6.5, 17.4, 2.4, 9]
     assert kilometer_distances[0] / 1.6 == mile_distances[0]
     assert kilometer_distances[1] / 1.7 != mile_distances[1]
+
+def test_kilometer():
+    assert kilometer[0]/mile_distances[0] == 1.6
 
 '''
 тестирование sorted

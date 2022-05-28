@@ -52,14 +52,15 @@ def run_victory():
             # получаем правильный ответ
             true_answer = FAMOUS[item]
             # сравниваем
-            if answer == true_answer:
-                print('Верно')
-            else:
-                print('Неверно')
-                # получаем дату в текстовом виде
-                correct_answer = date_to_str(true_answer)
-                # выводим
-                print(f'Правильный ответ: {correct_answer}')
+            print('Верно' if answer == true_answer else 'Неверно')
+            # if answer == true_answer:
+            #     print('Верно')
+            # else:
+            #     print('Неверно')
+            #     # получаем дату в текстовом виде
+            correct_answer = date_to_str(true_answer)
+            #     # выводим
+            print(f'Правильный ответ: {correct_answer}')
 
         play_again = None
         # Будем спрашивать пока не ответят Да или Нет
@@ -68,3 +69,6 @@ def run_victory():
 
         # Да - продолжаем, Нет - выходим
         is_play = play_again == 'Да'
+
+if __name__ == '__main__':
+    run_victory()
