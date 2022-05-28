@@ -1,5 +1,5 @@
 from victory import *
-
+from separator import *
 
 def test_date_to_str():
     assert date_to_str("01.01.2020") == "первое января 2020 года"
@@ -13,7 +13,6 @@ def test_separator():
     assert separator(30) == ("*" * 30)
     for element in separator():
         assert element == "*"
-
 
 def test_is_correct_choice():
     assert is_correct_choice("8") == False

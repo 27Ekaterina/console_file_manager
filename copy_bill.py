@@ -36,7 +36,9 @@
 
 import json
 import os
+from separator import add_separators
 
+@add_separators
 def run_bill():
     """
     Функция запускает программу личный счет
@@ -54,7 +56,6 @@ def run_bill():
     if os.path.exists(FILE_NAME_sum):
         with open(FILE_NAME_sum, 'r') as f:
             bill_sum = json.load(f)
-
     while True:
         print('1. пополнение счета')
         print('2. покупка')
@@ -64,16 +65,22 @@ def run_bill():
 
         choice = input('Выберите пункт меню')
         if choice == '1':
-            cost = int(input('Введите сумму'))
-            bill_sum += cost
+            try:
+                cost = int(input('Введите сумму'))
+                bill_sum += cost
+            except ValueError:
+                print("Cумму взноса нужно вводить цифрами!")
         elif choice == '2':
-            cost = int(input('Введите сумму покупки'))
-            if cost > bill_sum:
-                print('Недостаточно средств')
-            else:
-                bill_sum -= cost
-                name = input('Введит название покупки')
-                history.append((name, cost))
+            try:
+                cost = int(input('Введите сумму покупки'))
+                if cost > bill_sum:
+                    print('Недостаточно средств')
+                else:
+                    bill_sum -= cost
+                    name = input('Введит название покупки')
+                    history.append((name, cost))
+            except ValueError:
+                print("Cумму покупки нужно вводить цифрами!")
         elif choice == '3':
             print(history)
         elif choice == '4':
@@ -85,5 +92,5 @@ def run_bill():
         else:
             print('Неверный пункт меню')
 
-# if __name__ == '__main__':
-#     run_bill()
+if __name__ == '__main__':
+    run_bill()

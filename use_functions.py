@@ -65,19 +65,22 @@ while True:
     choice = input('Выберите пункт меню')
 
     if choice == '1':
-        deposit = int(input("Ведите сумму взноса на счет: "))
-        my_money += deposit
-
+        try:
+            deposit = int(input("Ведите сумму взноса на счет: "))
+            my_money += deposit
+        except ValueError:
+            print("Cумму взноса нужно вводить цифрами!")
     elif choice == '2':
-
-        buy = int(input("Ведите сумму, потраченную на покупку: "))
-        if buy < my_money:
-            my_money -= buy
-            product = input("Введите продукт: ")
-            buy_history[product] = buy
-        else:
-            print("Недостаточно средств(")
-
+        try:
+            buy = int(input("Ведите сумму, потраченную на покупку: "))
+            if buy < my_money:
+                my_money -= buy
+                product = input("Введите продукт: ")
+                buy_history[product] = buy
+            else:
+                print("Недостаточно средств(")
+        except ValueError:
+            print("Cумму, потраченную на покупку, нужно вводить цифрами!")
     elif choice == '3':
         print("Мои покупки", buy_history)
 
